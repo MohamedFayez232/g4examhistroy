@@ -1,199 +1,63 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta name='admaven-placement' content=Bqdw5rHr9>
-    <?php require_once('imp.php'); ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>امتحان</title>
-    
-    <!-- Starter.io Ads -->
-    <script async src="https://cdn.starter.io/sdk.js"></script>
-    <script>
-        starterio.init({
-            pubId: '112264168'  // استبدل هذا بـ Publisher ID الخاص بك من starter.io
-        });
-    </script>
+import React, { useState } from 'react';
+import './App.css'; // ملف CSS لتصميم الصفحة
 
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            direction: rtl;
-            text-align: right;
-            margin: 20px;
-            background-color: #f5f6fa;
-            color: #2c3e50;
-        }
-        h1 {
-            color: #2980b9;
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        h2 {
-            color: #27ae60;
-            font-size: 1.8em;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .question {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            border: 2px solid #3498db;
-            border-radius: 8px;
-            font-size: 1.1em;
-        }
-        label {
-            font-size: 1.2em;
-        }
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            border-radius: 8px;
-            cursor: pointer;
-            display: block;
-            margin: 0 auto;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #2980b9;
-        }
-        .result {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 1.5em;
-            color: #e74c3c;
-        }
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            h2 {
-                font-size: 1.5em;
-            }
-            button {
-                font-size: 1.1em;
-            }
-        }
-    </style>
-</head>
-<body>
+function App() {
+  const [name, setName] = useState('');
+  const [score, setScore] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-    <div class="container">
-        <h1>امتحان</h1>
-        <label for="studentName">اسم الطالب:</label>
-        <input type="text" id="studentName" placeholder="أدخل اسمك" required>
+  // مصفوفة تحتوي على أسئلة الاختبار مع الخيارات والإجابات الصحيحة
+  const questions = [
+    // ... أسئلة الاختبار
+  ];
 
-        <form id="quizForm">
-            <h2>أسئلة اختيار من متعدد:</h2>
+  // دالة لحساب الدرجة
+  const calculateScore = () => {
+    // ... منطق لحساب الدرجة بناءً على إجابات المستخدم
+  };
 
-            <div class="question">
-                <p>1. ما هو عاصمة مصر؟</p>
-                <label><input type="radio" name="q1" value="2"> القاهرة</label><br>
-                <label><input type="radio" name="q1" value="0"> الإسكندرية</label><br>
-                <label><input type="radio" name="q1" value="0"> الجيزة</label>
-            </div>
+  // دالة لعرض النتيجة في شاشة منفصلة
+  const showResult = () => {
+    setShowModal(true);
+  };
 
-            <div class="question">
-                <p>2. ما هو أكبر محيط في العالم؟</p>
-                <label><input type="radio" name="q2" value="0"> المحيط الأطلسي</label><br>
-                <label><input type="radio" name="q2" value="2"> المحيط الهادئ</label><br>
-                <label><input type="radio" name="q2" value="0"> المحيط الهندي</label>
-            </div>
+  return (
+    <div className="App">
+      <h1>اختبار تفاعلي</h1>
+      <input type="text" placeholder="أدخل اسمك" value={name} onChange={(e) => setName(e.target.value)} />
 
-            <!-- إضافة المزيد من أسئلة الاختيار من متعدد هنا (إجمالي 7 أسئلة) -->
+      {/* رمز إعلان AdMaven هنا */}
+      <div id="1097605">
+        {/* سيتم استبدال هذا الجزء برمز الإعلان الخاص بك */}
+      </div>
 
-            <h2>أسئلة صح أو خطأ:</h2>
+      {/* الأسئلة */}
+      {questions.map((question, index) => (
+        <div key={index}>
+          {/* ... عرض السؤال والخيارات */}
+        </div>
+      ))}
 
-            <div class="question">
-                <p>8. الأرض مسطحة.</p>
-                <label><input type="radio" name="q8" value="0"> خطأ</label><br>
-                <label><input type="radio" name="q8" value="2"> صح</label>
-            </div>
+      <button onClick={() => {
+        calculateScore();
+        setIsSubmitted(true);
+      }}>تأكيد</button>
 
-            <div class="question">
-                <p>9. الإنسان يحتاج للأكسجين للبقاء على قيد الحياة.</p>
-                <label><input type="radio" name="q9" value="2"> صح</label><br>
-                <label><input type="radio" name="q9" value="0"> خطأ</label>
-            </div>
+      {isSubmitted && (
+        <button onClick={showResult}>عرض النتيجة</button>
+      )}
 
-            <!-- إضافة المزيد من أسئلة صح أو خطأ هنا (إجمالي 8 أسئلة) -->
-
-            <button type="button" onclick="calculateScore()">تأكيد</button>
-        </form>
-
-        <div class="result" id="result"></div>
+      {showModal && (
+        <div className="modal">
+          <h2>نتيجة الاختبار</h2>
+          <p>اسم الطالب: {name}</p>
+          <p>درجتك: {score} من 30</p>
+          <button onClick={() => setShowModal(false)}>إغلاق</button>
+        </div>
+      )}
     </div>
+  );
+}
 
-    <!-- إعلان من Starter.io -->
-    <div id="starterio-banner"></div>
-    <script>
-        starterio.display('starterio-banner', {
-            adUnitId: '208399956',  // ضع هنا معرف الوحدة الإعلانية الخاص بك
-            adFormat: 'banner',
-            responsive: true
-        });
-    </script>
-
-    <script>
-        function calculateScore() {
-            let totalScore = 0;
-            const form = document.forms.quizForm;
-            const name = document.getElementById('studentName').value;
-
-            // حساب النتيجة
-            for (let i = 1; i <= 15; i++) {
-                const answer = form[`q${i}`];
-                if (answer) {
-                    for (let j = 0; j < answer.length; j++) {
-                        if (answer[j].checked) {
-                            totalScore += parseInt(answer[j].value);
-                        }
-                    }
-                }
-            }
-
-            if (!name) {
-                alert("يرجى إدخال اسم الطالب.");
-                return;
-            }
-
-            // عرض إعلان بيني
-            showInterstitialAd().then(() => {
-                // بعد عرض الإعلان، الانتقال إلى صفحة النتيجة
-                window.location.href = `result.html?name=${encodeURIComponent(name)}&score=${totalScore}`;
-            });
-        }
-
-        // دالة عرض الإعلان البيني
-        function showInterstitialAd() {
-            return new Promise((resolve) => {
-                starterio.interstitial.show({
-                    adUnitId: '208399956', // ضع هنا معرف الوحدة الإعلانية للإعلان البيني
-                    onAdClosed: resolve // بمجرد إغلاق الإعلان يتم عرض النتيجة
-                });
-            });
-        }
-    </script>
-
-</body>
-</html>
+export default App;
