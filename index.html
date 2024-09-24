@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
-import './App.css'; // ملف CSS لتصميم الصفحة
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>امتحان تفاعلي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        #my-ad-unit {
+            margin: 20px 0;
+        }
+        /* إضافة تصميمات أخرى حسب الحاجة */
+    </style>
+</head>
+<body>
 
-function App() {
-  const [name, setName] = useState('');
-  const [score, setScore] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+<h1>امتحان تفاعلي</h1>
+<p>أدخل اسمك:</p>
+<input type="text" id="studentName" placeholder="اسم الطالب">
 
-  // مصفوفة تحتوي على أسئلة الاختبار مع الخيارات والإجابات الصحيحة
-  const questions = [
-    // ... أسئلة الاختبار
-  ];
+<h2>اختر الإجابة الصحيحة:</h2>
+<form id="quizForm">
+    <h3>1. السؤال الأول؟</h3>
+    <label><input type="radio" name="q1" value="a"> الخيار A</label><br>
+    <label><input type="radio" name="q1" value="b"> الخيار B</label><br>
+    <label><input type="radio" name="q1" value="c"> الخيار C</label><br>
 
-  // دالة لحساب الدرجة
-  const calculateScore = () => {
-    // ... منطق لحساب الدرجة بناءً على إجابات المستخدم
-  };
+    <h3>2. السؤال الثاني؟</h3>
+    <label><input type="radio" name="q2" value="a"> الخيار A</label><br>
+    <label><input type="radio" name="q2" value="b"> الخيار B</label><br>
+    <label><input type="radio" name="q2" value="c"> الخيار C</label><br>
 
-  // دالة لعرض النتيجة في شاشة منفصلة
-  const showResult = () => {
-    setShowModal(true);
-  };
+    <!-- أضف المزيد من الأسئلة حسب الحاجة -->
 
-  return (
-    <div className="App">
-      <h1>اختبار تفاعلي</h1>
-      <input type="text" placeholder="أدخل اسمك" value={name} onChange={(e) => setName(e.target.value)} />
+    <button type="button" onclick="showResult()">تأكيد</button>
+</form>
 
-      {/* رمز إعلان AdMaven هنا */}
-      <div id="1097605">
-        {/* سيتم استبدال هذا الجزء برمز الإعلان الخاص بك */}
-      </div>
+<div id="1097605">
+    <!-- كود AdMaven للإعلان -->
+    <script type="text/javascript" src="https://admaven.com/ads.js"></script>
+    <div id="admaven-ad" style="width: 100%; height: 250px;"></div>
+    <script type="text/javascript">
+        var admaven_ad = document.getElementById('admaven-ad');
+        admaven_ad.innerHTML = '<iframe src="https://admaven.com/ad.php?id=1097605" style="width:100%; height:100%; border:none;"></iframe>';
+    </script>
+</div>
 
-      {/* الأسئلة */}
-      {questions.map((question, index) => (
-        <div key={index}>
-          {/* ... عرض السؤال والخيارات */}
-        </div>
-      ))}
-
-      <button onClick={() => {
-        calculateScore();
-        setIsSubmitted(true);
-      }}>تأكيد</button>
-
-      {isSubmitted && (
-        <button onClick={showResult}>عرض النتيجة</button>
-      )}
-
-      {showModal && (
-        <div className="modal">
-          <h2>نتيجة الاختبار</h2>
-          <p>اسم الطالب: {name}</p>
-          <p>درجتك: {score} من 30</p>
-          <button onClick={() => setShowModal(false)}>إغلاق</button>
-        </div>
-      )}
-    </div>
-  );
+<script>
+function showResult() {
+    // هنا يمكنك حساب الدرجة وعرض النتيجة
+    var name = document.getElementById("studentName").value;
+    alert("اسمك: " + name + "\nنتيجتك: [هنا يمكن عرض النتيجة]");
 }
+</script>
 
-export default App;
+</body>
+</html>
