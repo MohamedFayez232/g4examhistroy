@@ -8,54 +8,137 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
             padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
         }
         #my-ad-unit {
             margin: 20px 0;
         }
-        /* إضافة تصميمات أخرى حسب الحاجة */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
-<h1>امتحان تفاعلي</h1>
-<p>أدخل اسمك:</p>
-<input type="text" id="studentName" placeholder="اسم الطالب">
+<header>
+    <h1>امتحان تفاعلي</h1>
+</header>
 
-<h2>اختر الإجابة الصحيحة:</h2>
-<form id="quizForm">
-    <h3>1. السؤال الأول؟</h3>
-    <label><input type="radio" name="q1" value="a"> الخيار A</label><br>
-    <label><input type="radio" name="q1" value="b"> الخيار B</label><br>
-    <label><input type="radio" name="q1" value="c"> الخيار C</label><br>
+<div class="container">
+    <p>أدخل اسمك:</p>
+    <input type="text" id="studentName" placeholder="اسم الطالب">
 
-    <h3>2. السؤال الثاني؟</h3>
-    <label><input type="radio" name="q2" value="a"> الخيار A</label><br>
-    <label><input type="radio" name="q2" value="b"> الخيار B</label><br>
-    <label><input type="radio" name="q2" value="c"> الخيار C</label><br>
+    <h2>اختر الإجابة الصحيحة:</h2>
+    <form id="quizForm">
+        <h3>1. السؤال الأول؟</h3>
+        <label><input type="radio" name="q1" value="a"> الخيار A</label>
+        <label><input type="radio" name="q1" value="b"> الخيار B</label>
+        <label><input type="radio" name="q1" value="c"> الخيار C</label>
 
-    <!-- أضف المزيد من الأسئلة حسب الحاجة -->
+        <h3>2. السؤال الثاني؟</h3>
+        <label><input type="radio" name="q2" value="a"> الخيار A</label>
+        <label><input type="radio" name="q2" value="b"> الخيار B</label>
+        <label><input type="radio" name="q2" value="c"> الخيار C</label>
+
+        <!-- أضف المزيد من الأسئلة حسب الحاجة -->
+    </form>
+
+    <div id="328153">
+        <!-- كود AdMaven للإعلان في بداية الصفحة -->
+        <script type="text/javascript" src="https://admaven.com/ads.js"></script>
+        <div id="admaven-ad-start" style="width: 100%; height: 250px;"></div>
+        <script type="text/javascript">
+            var admaven_ad_start = document.getElementById('admaven-ad-start');
+            admaven_ad_start.innerHTML = '<iframe src="https://admaven.com/ad.php?id=328153" style="width:100%; height:100%; border:none;"></iframe>';
+        </script>
+    </div>
 
     <button type="button" onclick="showResult()">تأكيد</button>
-</form>
+</div>
 
-<div id="1097605">
-    <!-- كود AdMaven للإعلان -->
-    <script type="text/javascript" src="https://admaven.com/ads.js"></script>
-    <div id="admaven-ad" style="width: 100%; height: 250px;"></div>
+<div id="328153">
+    <!-- كود AdMaven للإعلان في نهاية الصفحة -->
+    <div id="admaven-ad-end" style="width: 100%; height: 250px; margin-top: 20px;"></div>
     <script type="text/javascript">
-        var admaven_ad = document.getElementById('admaven-ad');
-        admaven_ad.innerHTML = '<iframe src="https://admaven.com/ad.php?id=1097605" style="width:100%; height:100%; border:none;"></iframe>';
+        var admaven_ad_end = document.getElementById('admaven-ad-end');
+        admaven_ad_end.innerHTML = '<iframe src="https://admaven.com/ad.php?id=328153" style="width:100%; height:100%; border:none;"></iframe>';
     </script>
 </div>
 
 <script>
 function showResult() {
-    // هنا يمكنك حساب الدرجة وعرض النتيجة
     var name = document.getElementById("studentName").value;
-    alert("اسمك: " + name + "\nنتيجتك: [هنا يمكن عرض النتيجة]");
+    var score = calculateScore(); // هنا يمكنك تنفيذ منطق حساب الدرجة
+    var resultWindow = window.open('', 'نتيجة الامتحان', 'width=400,height=300');
+    resultWindow.document.write('<html><head><title>نتيجة الامتحان</title></head><body>');
+    resultWindow.document.write('<h2>اسمك: ' + name + '</h2>');
+    resultWindow.document.write('<h2>نتيجتك: ' + score + '</h2>');
+    resultWindow.document.write('</body></html>');
+    resultWindow.document.close();
+}
+
+function calculateScore() {
+    // هنا يمكنك إضافة منطق حساب درجة الطالب بناءً على إجابات الأسئلة
+    // كمثال، سأعيد درجة ثابتة
+    return 80; // هنا يمكنك حساب الدرجة الفعلية
 }
 </script>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2024</p>
+</footer>
 
 </body>
 </html>
