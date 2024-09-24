@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>امتحان</title>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    <!-- Starter.io Ads -->
+    <script async src="https://cdn.starter.io/sdk.js"></script>
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "YOUR_ADSENSE_CODE",
-            enable_page_level_ads: true
+        starterio.init({
+            pubId: '112264168'  // استبدل هذا بـ Publisher ID الخاص بك من starter.io
         });
     </script>
+
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -141,15 +142,14 @@
         <div class="result" id="result"></div>
     </div>
 
-    <!-- إعلان بانر -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="YOUR_ADSENSE_CODE"
-         data-ad-slot="YOUR_AD_SLOT"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <!-- إعلان من Starter.io -->
+    <div id="starterio-banner"></div>
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
+        starterio.display('starterio-banner', {
+            adUnitId: '208399956',  // ضع هنا معرف الوحدة الإعلانية الخاص بك
+            adFormat: 'banner',
+            responsive: true
+        });
     </script>
 
     <script>
@@ -185,11 +185,10 @@
         // دالة عرض الإعلان البيني
         function showInterstitialAd() {
             return new Promise((resolve) => {
-                // Simulate ad load and display
-                setTimeout(() => {
-                    alert("يتم عرض الإعلان الآن...");
-                    resolve(); // بعد انتهاء الإعلان
-                }, 3000); // مدة عرض الإعلان (مثلاً 3 ثوانٍ)
+                starterio.interstitial.show({
+                    adUnitId: '208399956', // ضع هنا معرف الوحدة الإعلانية للإعلان البيني
+                    onAdClosed: resolve // بمجرد إغلاق الإعلان يتم عرض النتيجة
+                });
             });
         }
     </script>
