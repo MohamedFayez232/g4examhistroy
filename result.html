@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نتيجة الامتحان</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin: 20px;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2980b9;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.5em;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>نتيجتك</h1>
+        <p id="resultText"></p>
+    </div>
+
+    <script>
+        // استخراج البيانات من رابط الصفحة
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const score = urlParams.get('score');
+
+        // عرض النتيجة
+        document.getElementById('resultText').innerText = `الاسم: ${name}\nدرجتك: ${score} من 30`;
+    </script>
+
+</body>
+</html>
+``
