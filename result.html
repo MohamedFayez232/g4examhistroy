@@ -3,40 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نتيجة الامتحان</title>
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            direction: rtl;
-            text-align: center;
-            margin: 20px;
-            background-color: #f5f6fa;
-            color: #2c3e50;
+    <title>النتيجة</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function() {
+            const studentName = localStorage.getItem("studentName");
+            const studentScore = localStorage.getItem("studentScore");
+            document.getElementById("student-name-result").innerText = studentName;
+            document.getElementById("student-score").innerText = studentScore;
         }
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #2980b9;
-            font-size: 2.5em;
-        }
-        p {
-            font-size: 1.5em;
-            color: #e74c3c;
-        }
-    </style>
+    </script>
 </head>
 <body>
-
-    <div class="container">
-        <h1>نتيجتك</h1>
-        <p id="resultText"></p>
+    <!-- إعلان AdMaven في صفحة النتيجة -->
+    <div id="ad-result-top">
+        <h2>إعلان AdMaven 3</h2>
     </div>
 
-    <script>
-       
+    <h2>نتيجة الطالب</h2>
+    <div class="result">
+        <p>اسم الطالب: <span id="student-name-result"></span></p>
+        <p>النتيجة: <span id="student-score"></span> من 30</p>
+    </div>
+
+    <!-- إعلان AdMaven أسفل صفحة النتيجة -->
+    <div id="ad-result-bottom">
+        <h2>إعلان AdMaven 4</h2>
+    </div>
+</body>
+</html>
