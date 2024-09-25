@@ -3,32 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>النتيجة</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        window.onload = function() {
-            const studentName = localStorage.getItem("studentName");
-            const studentScore = localStorage.getItem("studentScore");
-            document.getElementById("student-name-result").innerText = studentName;
-            document.getElementById("student-score").innerText = studentScore;
+    <title>نتيجة الاختبار</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
         }
-    </script>
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
     <!-- إعلان AdMaven في صفحة النتيجة -->
-    <div id="ad-result-top">
-        <h2>إعلان AdMaven 3</h2>
+    <div id="ad-top">
+        <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1097843"></script>
     </div>
 
-    <h2>نتيجة الطالب</h2>
-    <div class="result">
-        <p>اسم الطالب: <span id="student-name-result"></span></p>
-        <p>النتيجة: <span id="student-score"></span> من 30</p>
+    <header>نتيجة الاختبار</header>
+
+    <div class="container">
+        <h2>الطالب: <span id="studentName"></span></h2>
+        <h2>النتيجة: <span id="resultScore"></span>/100</h2>
     </div>
 
     <!-- إعلان AdMaven أسفل صفحة النتيجة -->
-    <div id="ad-result-bottom">
-        <h2>إعلان AdMaven 4</h2>
+    <div id="ad-bottom">
+        <script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1097843"></script>
     </div>
+
+    <footer>
+        &copy; 2024 اختبار بسيط
+    </footer>
+
+    <script>
+        // استخراج الاسم والنتيجة من URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const result = urlParams.get('result');
+
+        // عرض الاسم والنتيجة
+        document.getElementById('studentName').textContent = name;
+        document.getElementById('resultScore').textContent = result;
+    </script>
+
 </body>
 </html>
